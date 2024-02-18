@@ -1,4 +1,6 @@
 "use client";
+import React from "react";
+
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   Avatar,
@@ -13,7 +15,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import * as React from "react";
 
 function Copyright(props: any) {
   return (
@@ -24,10 +25,7 @@ function Copyright(props: any) {
       {...props}
     >
       {"Copyright © "}
-      <Link
-        color="inherit"
-        href="https://mui.com/"
-      >
+      <Link color="inherit" href="https://mui.com/">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -47,10 +45,7 @@ export default function SignIn() {
   };
 
   return (
-    <Container
-      component="main"
-      maxWidth="xs"
-    >
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
@@ -63,18 +58,10 @@ export default function SignIn() {
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography
-          component="h1"
-          variant="h5"
-        >
+        <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          noValidate
-          sx={{ mt: 1 }}
-        >
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
@@ -96,12 +83,7 @@ export default function SignIn() {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={
-              <Checkbox
-                value="remember"
-                color="primary"
-              />
-            }
+            control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
@@ -113,22 +95,13 @@ export default function SignIn() {
             Sign In
           </Button>
           <Grid container>
-            <Grid
-              item
-              xs
-            >
-              <Link
-                href="#"
-                variant="body2"
-              >
+            <Grid item xs>
+              <Link href="#" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link
-                href="#"
-                variant="body2"
-              >
+              <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
