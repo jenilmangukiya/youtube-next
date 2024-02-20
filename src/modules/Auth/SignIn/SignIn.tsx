@@ -13,26 +13,10 @@ import {
   Grid,
   Link,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { Copyright } from "../components";
 
 export default function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,7 +24,7 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
-      password: data.get("password"),
+      password: data.get("password")
     });
   };
 
@@ -52,7 +36,7 @@ export default function SignIn() {
           marginTop: 8,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -101,7 +85,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/sign-up" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
