@@ -28,6 +28,14 @@ export default function SignIn() {
     });
   };
 
+  // const { data } = useQuery({
+  //   queryKey: ["health-check"],
+  //   queryFn: async () => await axiosAuth.get("/dashboard/stats"),
+  //   select: (data) => data.data
+  // });
+
+  // console.log("data", data);
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
