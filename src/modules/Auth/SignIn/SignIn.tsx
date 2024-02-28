@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
@@ -16,25 +15,11 @@ import {
   Typography
 } from "@mui/material";
 
+import { useSignIn } from "./useSignIn";
 import { Copyright } from "../components";
 
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password")
-    });
-  };
-
-  // const { data } = useQuery({
-  //   queryKey: ["health-check"],
-  //   queryFn: async () => await axiosAuth.get("/dashboard/stats"),
-  //   select: (data) => data.data
-  // });
-
-  // console.log("data", data);
+  const { handleSubmit, isAuthenticated } = useSignIn();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -51,7 +36,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign in {isAuthenticated ? "Authenticated" : "Not Authenticated"}
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField

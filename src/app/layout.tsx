@@ -1,10 +1,9 @@
 "use client";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Inter } from "next/font/google";
-import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { AuthProvider } from "@app/Auth";
 
 export default function RootLayout({
   children
@@ -17,11 +16,11 @@ export default function RootLayout({
   });
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <QueryClientProvider client={client}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {children}
+            <AuthProvider>{children}</AuthProvider>
           </ThemeProvider>
         </QueryClientProvider>
       </body>
