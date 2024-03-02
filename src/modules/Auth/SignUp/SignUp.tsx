@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   Avatar,
@@ -15,20 +13,17 @@ import {
   TextField,
   Typography
 } from "@mui/material";
-import { useRouter } from "next/navigation";
 
+import { useSignUp } from "./useSignUp";
 import { Copyright } from "../components";
 
 export default function SignUp() {
-  const router = useRouter();
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password")
-    });
-  };
+  const { handleSubmit, isAuthenticated, router } = useSignUp();
+
+  if (isAuthenticated) {
+    router.replace("/");
+    return null;
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,16 +41,23 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
+            label="Username"
+            name="username"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="fullName"
             label="Full name"
             name="fullName"
-            autoComplete="email"
-            autoFocus
           />
           <TextField
             margin="normal"
@@ -64,8 +66,6 @@ export default function SignUp() {
             id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
-            autoFocus
           />
           <TextField
             margin="normal"
@@ -75,18 +75,25 @@ export default function SignUp() {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="confirm_password"
+            label="Confirm Password"
+            type="password"
+            id="confirm_password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
-            type="button"
+            type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            onClick={() => router.push("/")}
           >
             Sign Up
           </Button>

@@ -19,6 +19,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Youtube-Next</title>
+      </head>
       <body>
         <SnackbarAlertProvider>
           <QueryClientProvider client={client}>

@@ -33,7 +33,7 @@ export const useSignIn = () => {
           message: "LoggedIn SuccessFully",
           severity: "success"
         });
-        router.push("/");
+        router.replace("/");
       } else {
         setIsAuthenticated(false);
         setSnackbarConfig({
@@ -54,5 +54,5 @@ export const useSignIn = () => {
     });
   };
 
-  return { isAuthenticated, handleSubmit };
+  return { isAuthenticated, handleSubmit, router };
 };

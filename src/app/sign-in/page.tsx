@@ -1,4 +1,4 @@
-import SignIn from "@app/modules/Auth/SignIn";
+import { SignIn } from "@app/modules";
 
 const page = () => {
   return <SignIn />;

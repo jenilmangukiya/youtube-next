@@ -18,7 +18,12 @@ import { useSignIn } from "./useSignIn";
 import { Copyright } from "../components";
 
 export default function SignIn() {
-  const { handleSubmit, isAuthenticated } = useSignIn();
+  const { handleSubmit, isAuthenticated, router } = useSignIn();
+
+  if (isAuthenticated) {
+    router.replace("/");
+    return null;
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -36,7 +41,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in {isAuthenticated ? "Authenticated" : "Not Authenticated"}
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
