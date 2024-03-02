@@ -1,7 +1,7 @@
 import { UseMutationOptions, useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-import { axiosAuth } from "@app/utils";
+import { axiosAuth } from "@app/Auth";
 
 import { LOGIN_USER } from "./AuthApiRoutes";
 
