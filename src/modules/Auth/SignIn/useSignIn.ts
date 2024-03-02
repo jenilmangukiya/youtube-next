@@ -1,11 +1,21 @@
+import { useRouter } from "next/navigation";
+
 import { useAuth } from "@app/Auth";
+import { useSnackbar } from "@app/components";
 import { useLoginUser } from "@app/services";
 
 export const useSignIn = () => {
+  const router = useRouter();
   const { isAuthenticated, setIsAuthenticated, setUser } = useAuth();
+  const { setSnackbarConfig } = useSnackbar();
 
   const { mutate: loginMutation } = useLoginUser({
     onError: () => {
+      setSnackbarConfig({
+        open: true,
+        message: "LoggedIn Failed",
+        severity: "error"
+      });
       setIsAuthenticated(false);
     },
     onSuccess: (response) => {
@@ -18,8 +28,19 @@ export const useSignIn = () => {
           userId: user._id,
           username: user.username
         });
+        setSnackbarConfig({
+          open: true,
+          message: "LoggedIn SuccessFully",
+          severity: "success"
+        });
+        router.push("/");
       } else {
         setIsAuthenticated(false);
+        setSnackbarConfig({
+          open: true,
+          message: "LoggedIn Failed",
+          severity: "error"
+        });
       }
     }
   });

@@ -1,9 +1,11 @@
 "use client";
+
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import "./globals.css";
 import { AuthProvider } from "@app/Auth";
+import { SnackbarAlertProvider } from "@app/components";
+import "./globals.css";
 
 export default function RootLayout({
   children
@@ -14,15 +16,18 @@ export default function RootLayout({
   const client = new QueryClient({
     defaultOptions: { queries: { staleTime: 5000, gcTime: 5000 } }
   });
+
   return (
     <html lang="en">
       <body>
-        <QueryClientProvider client={client}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <AuthProvider>{children}</AuthProvider>
-          </ThemeProvider>
-        </QueryClientProvider>
+        <SnackbarAlertProvider>
+          <QueryClientProvider client={client}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <AuthProvider>{children}</AuthProvider>
+            </ThemeProvider>
+          </QueryClientProvider>
+        </SnackbarAlertProvider>
       </body>
     </html>
   );
