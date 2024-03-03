@@ -1,10 +1,10 @@
 "use client";
 
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { AuthProvider } from "@app/Auth";
-import { SnackbarAlertProvider } from "@app/components";
+import { SnackbarAlertProvider, theme } from "@app/components";
 import "./globals.css";
 
 export default function RootLayout({
@@ -12,7 +12,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const theme = createTheme({ palette: { mode: "dark" } });
   const client = new QueryClient({
     defaultOptions: { queries: { staleTime: 5000, gcTime: 5000 } }
   });
