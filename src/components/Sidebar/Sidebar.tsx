@@ -10,12 +10,16 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const theme = useTheme();
   return (
-    <Drawer anchor={"left"} open={isSidebarOpen}>
+    <Drawer
+      anchor={"left"}
+      open={isSidebarOpen}
+      onClose={() => setIsSidebarOpen(false)}
+    >
       <Box
         sx={{
           backgroundColor: theme.palette.background.default,
           height: "100vh",
-          width: "230px"
+          width: "240px"
         }}
       >
         <Stack

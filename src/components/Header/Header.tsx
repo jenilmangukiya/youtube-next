@@ -10,16 +10,16 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
   return (
     <Box height={56}>
       <Stack
-        direction={"row"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        height={"100%"}
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        height="100%"
         px={3}
       >
         <Stack
-          direction={"row"}
-          justifyContent={"flex-start"}
-          alignItems={"center"}
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
           gap={2}
           flex={1}
         >
@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
             <Menu style={{ cursor: "pointer" }} />
           </IconButton>
           <Image
-            src={"/Youtube-Logo.svg"}
+            src="/Youtube-Logo.svg"
             alt="Youtube logo"
             width={90}
             height={90}
@@ -35,9 +35,9 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
           />
         </Stack>
         <Stack
-          direction={"row"}
-          justifyContent={"center"}
-          alignItems={"center"}
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
           gap={2}
           flex={2}
         >
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
             sx={{ width: "70%" }}
             InputProps={{
               endAdornment: <Search />,
-              sx: { borderRadius: "50px 50px 50px 50px" }
+              sx: { borderRadius: "50px" }
             }}
             color="secondary"
           />
@@ -57,9 +57,9 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
           </IconButton>
         </Stack>
         <Stack
-          direction={"row"}
-          justifyContent={"flex-end"}
-          alignItems={"center"}
+          direction="row"
+          justifyContent="flex-end"
+          alignItems="center"
           flex={1}
         >
           <RightSideHeaderMenus />
