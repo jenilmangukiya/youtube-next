@@ -1,5 +1,9 @@
 export const useStyle = () => {
   return {
+    cardContainer: {
+      background: "none",
+      cursor: "pointer"
+    },
     customTypography: {
       display: "-webkit-box",
       WebkitBoxOrient: "vertical",

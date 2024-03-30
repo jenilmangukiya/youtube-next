@@ -22,9 +22,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
   createdAt,
   variant = "vertical",
   caption,
-  size = "small"
+  size = "small",
+  sx,
+  ...rest
 }) => {
-  const { customTypography } = useStyle();
+  const { customTypography, cardContainer } = useStyle();
   const isSmall = size === "small";
 
   if (variant === "horizontal") {
@@ -32,11 +34,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <Card
         sx={{
           maxWidth: isSmall ? 365 : 964,
-          backgroundColor: "transparent",
-          border: "none",
-          boxShadow: "none",
-          flex: 1
+          ...cardContainer,
+          ...sx
         }}
+        {...rest}
       >
         <CardActionArea>
           <Stack direction={"row"}>
@@ -59,10 +60,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                   >
                     {title}
                   </Typography>
-                  <Stack
-                    direction={isSmall ? "column" : "column-reverse"}
-                    sx={{ color: "#aaa" }}
-                  >
+                  <Stack direction={isSmall ? "column" : "column-reverse"}>
                     <Typography
                       variant="caption"
                       component={"p"}
@@ -90,12 +88,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                       </Stack>
                     </Typography>
                   </Stack>
-                  <Typography
-                    variant="caption"
-                    component={"p"}
-                    pt={2}
-                    sx={{ color: "#aaa" }}
-                  >
+                  <Typography variant="caption" component={"p"} pt={2}>
                     {caption}
                   </Typography>
                 </Box>
@@ -110,44 +103,40 @@ const VideoCard: React.FC<VideoCardProps> = ({
   return (
     <Card
       sx={{
-        maxWidth: 365,
-        backgroundColor: "transparent",
-        border: "none",
-        boxShadow: "none",
-        background: "none"
+        ...cardContainer,
+        ...sx
       }}
+      {...rest}
     >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="210"
-          image={thumbnail}
-          alt="Not Found"
-          sx={{ borderRadius: "12px" }}
-        />
-        <CardContent sx={{ backgroundColor: "transparent", px: 0 }}>
-          <Stack direction="row" gap={2}>
-            <Avatar {...stringAvatar("Kent Dodds")} />
+      <CardMedia
+        component="img"
+        height="210"
+        image={thumbnail}
+        alt="Not Found"
+        sx={{ borderRadius: "12px" }}
+      />
+      <CardContent sx={{ backgroundColor: "transparent", px: 0 }}>
+        <Stack direction="row" gap={2}>
+          <Avatar {...stringAvatar("John Doe")} />
+          <Box>
+            <Typography variant="body1" sx={customTypography}>
+              {title}
+            </Typography>
             <Box>
-              <Typography variant="body1" sx={customTypography}>
-                {title}
+              <Typography variant="body2" mt={0.3}>
+                {owner}
               </Typography>
-              <Box sx={{ color: "#aaa" }}>
-                <Typography variant="body2" mt={0.3}>
-                  {owner}
-                </Typography>
-                <Typography variant="caption" mt={0.3}>
-                  <Stack direction={"row"} alignItems={"center"} gap={1}>
-                    {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
-                    {createdAt}
-                  </Stack>
-                </Typography>
-                <Typography variant="caption">{caption}</Typography>
-              </Box>
+              <Typography variant="caption" mt={0.3}>
+                <Stack direction={"row"} alignItems={"center"} gap={1}>
+                  {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
+                  {createdAt}
+                </Stack>
+              </Typography>
+              <Typography variant="caption">{caption}</Typography>
             </Box>
-          </Stack>
-        </CardContent>
-      </CardActionArea>
+          </Box>
+        </Stack>
+      </CardContent>
     </Card>
   );
 };
