@@ -1,5 +1,8 @@
 /* Customize website's main scrollbar like Mac OS (only supported in WebKit browsers) */
 
+body {
+  overflow-x: hidden;
+}
 /* total width */
 body::-webkit-scrollbar {
   background-color: transparent; /* Transparent background */

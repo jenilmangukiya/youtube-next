@@ -60,7 +60,10 @@ const Sidebar: React.FC<SidebarProps> = ({
               <ListItem key={item.label} disablePadding>
                 <ListItemButton sx={{ pl: 3 }}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.label} />
+                  <ListItemText
+                    primary={item.label}
+                    sx={{ ".MuiTypography-root": { fontSize: "14px" } }}
+                  />
                 </ListItemButton>
               </ListItem>
               {item.isLast ? (

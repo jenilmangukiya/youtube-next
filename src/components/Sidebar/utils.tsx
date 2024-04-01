@@ -1,79 +1,79 @@
 import {
-  AccountBox,
-  Feedback,
-  Flag,
-  Help,
-  History,
-  Home,
-  Person,
-  Settings,
-  Subscriptions,
-  VideoCameraBack,
-  WatchLater
+  AccountBoxOutlined,
+  FeedbackOutlined,
+  FlagOutlined,
+  HelpOutline,
+  HistoryOutlined,
+  HomeOutlined,
+  PersonOutline,
+  SettingsOutlined,
+  SubscriptionsOutlined,
+  VideoCameraBackOutlined,
+  WatchLaterOutlined
 } from "@mui/icons-material";
 
 const subscriptionsMenu = [
   {
     label: "Jenil Mangukiya",
-    icon: <Person />
+    icon: <PersonOutline />
   },
   {
     label: "Raj jasoliya",
-    icon: <Person />
+    icon: <PersonOutline />
   },
   {
     label: "Bhautik maniya",
-    icon: <Person />
+    icon: <PersonOutline />
   },
   {
     label: "Yash kakadiya",
-    icon: <Person />,
+    icon: <PersonOutline />,
     isLast: true
   }
 ];
 export const sidebarMenu = [
   {
     label: "Home",
-    icon: <Home />
+    icon: <HomeOutlined />
   },
   {
     label: "Subscription",
-    icon: <Subscriptions />,
+    icon: <SubscriptionsOutlined />,
     isLast: true
   },
 
   {
     label: "Your channel",
-    icon: <AccountBox />
+    icon: <AccountBoxOutlined />
   },
   {
     label: "History",
-    icon: <History />
+    icon: <HistoryOutlined />
   },
   {
     label: "Your videos",
-    icon: <VideoCameraBack />
+    icon: <VideoCameraBackOutlined />
   },
   {
     label: "Watch later",
-    icon: <WatchLater />,
+    icon: <WatchLaterOutlined />,
     isLast: true
   },
   ...subscriptionsMenu,
   {
     label: "Setting",
-    icon: <Settings />
+    icon: <SettingsOutlined />
   },
   {
     label: "Report history",
-    icon: <Flag />
+    icon: <FlagOutlined />
   },
   {
     label: "Help",
-    icon: <Help />
+    icon: <HelpOutline />
   },
   {
     label: "Send feedback",
-    icon: <Feedback />
+    icon: <FeedbackOutlined />
   }
 ];

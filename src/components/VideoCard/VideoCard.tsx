@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
   Stack,
@@ -33,69 +32,79 @@ const VideoCard: React.FC<VideoCardProps> = ({
     return (
       <Card
         sx={{
-          maxWidth: isSmall ? 365 : 964,
+          maxWidth: isSmall ? 400 : 964,
+          minWidth: isSmall ? 400 : 2000,
           ...cardContainer,
           ...sx
         }}
         {...rest}
       >
-        <CardActionArea>
-          <Stack direction={"row"}>
+        <Stack direction={"row"}>
+          <Box width={"50%"}>
             <CardMedia
               component="img"
               height={isSmall ? 96 : 240}
               width={isSmall ? 172 : 1072}
               image={thumbnail}
               alt="Not Found"
-              sx={{ borderRadius: "8px", width: "50%" }}
+              sx={{ borderRadius: "8px" }}
             />
-            <CardContent
-              sx={{ backgroundColor: "transparent", py: 0, width: "50%" }}
-            >
-              <Stack direction="row" gap={2}>
-                <Box>
+          </Box>
+          <CardContent
+            sx={{
+              backgroundColor: "transparent",
+              py: 0,
+              width: "50%",
+              "&.MuiCardContent-root": {
+                pb: 0
+              }
+            }}
+          >
+            <Stack direction="row" gap={2}>
+              <Box>
+                <Typography
+                  variant={isSmall ? "subtitle2" : "h6"}
+                  sx={customTypography}
+                >
+                  {title}
+                </Typography>
+                <Stack direction={isSmall ? "column" : "column-reverse"}>
                   <Typography
-                    variant={isSmall ? "body2" : "h6"}
-                    sx={customTypography}
+                    variant="caption"
+                    component={"p"}
+                    pt={isSmall ? 0.3 : 2}
                   >
-                    {title}
+                    <Stack direction={"row"} alignItems={"center"} gap={1}>
+                      {!isSmall && (
+                        <Avatar
+                          {...stringAvatar("Kent Dodds")}
+                          sx={{ width: 22, height: 22 }}
+                          sizes="8px"
+                        />
+                      )}{" "}
+                      {owner}
+                    </Stack>
                   </Typography>
-                  <Stack direction={isSmall ? "column" : "column-reverse"}>
-                    <Typography
-                      variant="caption"
-                      component={"p"}
-                      pt={isSmall ? 0.3 : 2}
-                    >
-                      <Stack direction={"row"} alignItems={"center"} gap={1}>
-                        {!isSmall && (
-                          <Avatar
-                            {...stringAvatar("Kent Dodds")}
-                            sx={{ width: 22, height: 22 }}
-                            sizes="8px"
-                          />
-                        )}{" "}
-                        {owner}
-                      </Stack>
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      component={"p"}
-                      pt={isSmall ? 0.3 : 0.3}
-                    >
-                      <Stack direction={"row"} alignItems={"center"} gap={1}>
-                        {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
-                        {createdAt}
-                      </Stack>
-                    </Typography>
-                  </Stack>
+                  <Typography
+                    variant="caption"
+                    component={"p"}
+                    pt={isSmall ? 0.3 : 0.3}
+                  >
+                    <Stack direction={"row"} alignItems={"center"} gap={1}>
+                      {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
+                      {createdAt}
+                    </Stack>
+                  </Typography>
+                </Stack>
+                {caption && (
                   <Typography variant="caption" component={"p"} pt={2}>
                     {caption}
                   </Typography>
-                </Box>
-              </Stack>
-            </CardContent>
-          </Stack>
-        </CardActionArea>
+                )}
+              </Box>
+            </Stack>
+          </CardContent>
+        </Stack>
       </Card>
     );
   }
