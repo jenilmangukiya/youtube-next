@@ -1,5 +1,21 @@
 "use client";
-import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
+import {
+  Download,
+  MoreVert,
+  Share,
+  ThumbDown,
+  ThumbUp
+} from "@mui/icons-material";
+import {
+  Avatar,
+  Box,
+  Button,
+  ButtonGroup,
+  IconButton,
+  Stack,
+  Typography,
+  useTheme
+} from "@mui/material";
 
 import { VideoCard } from "@app/components";
 import { stringAvatar } from "@app/components/VideoCard/utils/stringAvatar";
@@ -13,6 +29,7 @@ const content = {
   thumbnail: "/img.jpg"
 };
 const Video = () => {
+  const theme = useTheme();
   return (
     <Box mx={8} mt={2}>
       <Stack direction={{ md: "column", lg: "row" }}>
@@ -35,7 +52,7 @@ const Video = () => {
             alignItems={"center"}
           >
             <Box>
-              <Stack direction={"row"} gap={2} mt={1}>
+              <Stack direction={"row"} gap={2} mt={1} alignItems={"center"}>
                 <Avatar
                   {...stringAvatar("Kent Dodds")}
                   sx={{ width: 42, height: 42 }}
@@ -48,16 +65,44 @@ const Video = () => {
                   <Typography variant="caption">1.41M subscribers</Typography>
                 </Stack>
                 <Button
-                  color="secondary"
+                  color="white"
                   variant="contained"
                   size="small"
-                  sx={{ borderRadius: 18, fontWeight: 700 }}
+                  sx={{ fontWeight: 700, ml: 2 }}
                 >
                   Subscribe
                 </Button>
               </Stack>
             </Box>
-            <Box></Box>
+            <Stack alignItems={"center"} direction={"row"} gap={2}>
+              <ButtonGroup
+                disableElevation
+                color="gray"
+                variant="contained"
+                aria-label=" button group"
+              >
+                <Button sx={{ textTransform: "none" }} startIcon={<ThumbUp />}>
+                  Like
+                </Button>
+                <Button startIcon={<ThumbDown />}></Button>
+              </ButtonGroup>
+              <Button variant="contained" color="gray" startIcon={<Share />}>
+                Share
+              </Button>
+              <Button variant="contained" color="gray" startIcon={<Download />}>
+                Download
+              </Button>
+              <IconButton
+                sx={{
+                  backgroundColor: theme.palette.gray?.main,
+                  "&:hover": {
+                    backgroundColor: theme.palette.gray?.dark
+                  }
+                }}
+              >
+                <MoreVert />
+              </IconButton>
+            </Stack>
           </Stack>
         </Box>
         <Stack width={"602px"} gap={2} sx={{ overflow: "hidden" }}>
