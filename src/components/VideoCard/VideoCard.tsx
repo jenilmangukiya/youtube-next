@@ -9,9 +9,10 @@ import {
   Typography
 } from "@mui/material";
 
+import { stringAvatar } from "@app/utils";
+
 import { VideoCardProps } from "./types";
 import { useStyle } from "./useStyle";
-import { stringAvatar } from "./utils/stringAvatar";
 
 const VideoCard: React.FC<VideoCardProps> = ({
   thumbnail,
@@ -25,7 +26,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
   sx,
   ...rest
 }) => {
-  const { customTypography, cardContainer } = useStyle();
+  const { customTypography, cardContainer } = useStyle(sx);
   const isSmall = size === "small";
 
   if (variant === "horizontal") {
@@ -34,8 +35,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         sx={{
           maxWidth: isSmall ? 400 : 964,
           minWidth: isSmall ? 400 : 2000,
-          ...cardContainer,
-          ...sx
+          ...cardContainer
         }}
         {...rest}
       >
@@ -112,8 +112,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
   return (
     <Card
       sx={{
-        ...cardContainer,
-        ...sx
+        ...cardContainer
       }}
       {...rest}
     >

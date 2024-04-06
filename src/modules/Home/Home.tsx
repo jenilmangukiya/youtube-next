@@ -1,7 +1,6 @@
 "use client";
 import { Box, Chip } from "@mui/material";
 
-import { useAuth } from "@app/Auth";
 import { VideoCard } from "@app/components";
 
 import { useStyle } from "./useStyle";
@@ -38,7 +37,6 @@ const categories = [
 ];
 
 const Home = () => {
-  const { user } = useAuth();
   const { chipsContainer, videosContainer } = useStyle();
 
   return (
