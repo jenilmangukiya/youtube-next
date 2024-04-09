@@ -23,7 +23,7 @@ const VideoActions = () => {
   return (
     <div>
       <Stack
-        direction={"row"}
+        direction={{ sm: "column", lg: "row" }}
         justifyContent={"space-between"}
         alignItems={"center"}
       >

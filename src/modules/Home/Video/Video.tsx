@@ -3,7 +3,12 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { VideoCard } from "@app/components";
 
-import { VideoPlayer, VideoActions, VideoCaption } from "./components";
+import {
+  VideoPlayer,
+  VideoActions,
+  VideoCaption,
+  Comments
+} from "./components";
 
 const content = {
   title:
@@ -28,6 +33,7 @@ const Video = () => {
           </Typography>
           <VideoActions />
           <VideoCaption />
+          <Comments />
         </Box>
         <Stack width={"602px"} gap={2} sx={{ overflow: "hidden" }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
