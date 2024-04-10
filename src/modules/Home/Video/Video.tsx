@@ -1,7 +1,11 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
 
-import { VideoCard } from "@app/components";
+import { useLayoutEffect } from "react";
+
+import { Box, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+
+import { VideoCard, useDrawer } from "@app/components";
 
 import {
   VideoPlayer,
@@ -23,8 +27,15 @@ const videoTitle =
   "End Year Gangsters Mashup 2023 | 1 Hour Nonstop Mashup | DJ Sumit Rajwanshi | Nonstop Jukebox 2023";
 
 const Video = () => {
+  const { setIsSidebarOpen } = useDrawer() as any;
+  const router = useRouter();
+
+  useLayoutEffect(() => {
+    setIsSidebarOpen(false);
+  }, [setIsSidebarOpen]);
+
   return (
-    <Box mx={8} mt={2}>
+    <Box mx={4} mt={2}>
       <Stack direction={{ md: "column", lg: "row" }}>
         <Box width={"100%"} mb={8} pr={4}>
           <VideoPlayer />
@@ -43,6 +54,9 @@ const Video = () => {
                 variant="horizontal"
                 size="small"
                 key={item}
+                onClick={() => {
+                  router.push("/v/" + item);
+                }}
               />
             );
           })}

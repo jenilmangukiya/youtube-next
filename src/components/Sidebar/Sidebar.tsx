@@ -13,6 +13,7 @@ import {
   useTheme
 } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { SidebarProps } from "./types";
 import { useStyle } from "./useStyle";
@@ -23,6 +24,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   setIsSidebarOpen
 }) => {
   const theme = useTheme();
+  const router = useRouter();
   const { drawer } = useStyle(theme);
 
   return (
@@ -31,6 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       open={isSidebarOpen}
       onClose={() => setIsSidebarOpen(false)}
       sx={drawer}
+      variant="persistent"
     >
       <Box width={240}>
         <Stack
@@ -52,6 +55,9 @@ const Sidebar: React.FC<SidebarProps> = ({
             width={90}
             height={60}
             style={{ cursor: "pointer" }}
+            onClick={() => {
+              router.push("/");
+            }}
           />
         </Stack>
         <List sx={{ top: 60, bgcolor: theme.palette.background.default }}>

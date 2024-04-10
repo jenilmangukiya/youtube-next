@@ -1,5 +1,6 @@
 "use client";
-import { Box, Chip } from "@mui/material";
+import { Box } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 import { VideoCard } from "@app/components";
 
@@ -38,13 +39,13 @@ const categories = [
 
 const Home = () => {
   const { chipsContainer, videosContainer } = useStyle();
-
+  const router = useRouter();
   return (
     <>
       <Box sx={chipsContainer}>
-        {categories.map((item) => {
+        {/* {categories.map((item) => {
           return <Chip label={item} key={item} />;
-        })}
+        })} */}
       </Box>
       <Box sx={videosContainer}>
         {[1, 2, 3, 4, 5, 6, 12, 7, 8, 9, 0].map((item) => {
@@ -53,10 +54,16 @@ const Home = () => {
               key={item}
               sx={{
                 padding: 1,
-                width: { md: "33.33%", lg: "25%", sm: "50%", xs: "100%" }
+                width: { md: "33.33%", lg: "33.33%", sm: "50%", xs: "100%" }
               }}
             >
-              <VideoCard {...content} sx={{ width: "100%" }} />
+              <VideoCard
+                {...content}
+                sx={{ width: "100%" }}
+                onClick={() => {
+                  router.push("/v/" + item);
+                }}
+              />
             </Box>
           );
         })}

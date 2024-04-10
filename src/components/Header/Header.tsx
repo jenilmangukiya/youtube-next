@@ -1,14 +1,22 @@
 import { Menu, Mic, Search } from "@mui/icons-material";
 import { Box, IconButton, Stack, TextField, useTheme } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { RightSideHeaderMenus } from "./components";
 import { HeaderProps } from "./types";
 
 const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
   const theme = useTheme();
+  const router = useRouter();
   return (
-    <Box height={56}>
+    <Box
+      height={56}
+      position={"sticky"}
+      top={0}
+      bgcolor={theme.palette.background.default}
+      zIndex={1}
+    >
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -32,6 +40,9 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
             width={90}
             height={90}
             style={{ cursor: "pointer" }}
+            onClick={() => {
+              router.push("/");
+            }}
           />
         </Stack>
         <Stack

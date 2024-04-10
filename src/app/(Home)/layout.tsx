@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
 
-import { Header, Sidebar } from "@app/components";
+import { Box, Stack } from "@mui/material";
+
+import { DrawerContext, Header, Sidebar } from "@app/components";
 
 export default function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <>
@@ -16,11 +18,22 @@ export default function RootLayout({
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
-      <Sidebar
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
-      {children}
+
+      <Stack direction={"row"}>
+        <Box width={isSidebarOpen ? 240 : 0}>
+          {isSidebarOpen && (
+            <Sidebar
+              isSidebarOpen={isSidebarOpen}
+              setIsSidebarOpen={setIsSidebarOpen}
+            />
+          )}
+        </Box>
+        <Box flex={1}>
+          <DrawerContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
+            {children}
+          </DrawerContext.Provider>
+        </Box>
+      </Stack>
     </>
   );
 }

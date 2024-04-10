@@ -1,4 +1,6 @@
-export const useStyle = () => ({
+import { IStyle } from "@app/types";
+
+export const useStyle = (): IStyle => ({
   chipsContainer: {
     mt: 1,
     px: 3,
