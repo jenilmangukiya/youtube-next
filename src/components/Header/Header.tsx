@@ -61,7 +61,6 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
               endAdornment: <Search />,
               sx: { borderRadius: "50px" }
             }}
-            color="secondary"
           />
           <IconButton sx={{ backgroundColor: theme.palette.background.paper }}>
             <Mic />
