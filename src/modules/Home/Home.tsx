@@ -1,8 +1,10 @@
 "use client";
-import { Box } from "@mui/material";
+import { useLayoutEffect } from "react";
+
+import { Box, Chip } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-import { VideoCard } from "@app/components";
+import { VideoCard, useDrawer } from "@app/components";
 
 import { useStyle } from "./useStyle";
 const content = {
@@ -40,12 +42,19 @@ const categories = [
 const Home = () => {
   const { chipsContainer, videosContainer } = useStyle();
   const router = useRouter();
+
+  const { setIsSidebarOpen } = useDrawer() as any;
+
+  useLayoutEffect(() => {
+    setIsSidebarOpen(true);
+  }, [setIsSidebarOpen]);
+
   return (
     <>
       <Box sx={chipsContainer}>
-        {/* {categories.map((item) => {
+        {categories.map((item) => {
           return <Chip label={item} key={item} />;
-        })} */}
+        })}
       </Box>
       <Box sx={videosContainer}>
         {[1, 2, 3, 4, 5, 6, 12, 7, 8, 9, 0].map((item) => {

@@ -20,19 +20,18 @@ export default function RootLayout({
       />
 
       <Stack direction={"row"}>
-        <Box width={isSidebarOpen ? 240 : 0}>
-          {isSidebarOpen && (
-            <Sidebar
-              isSidebarOpen={isSidebarOpen}
-              setIsSidebarOpen={setIsSidebarOpen}
-            />
-          )}
-        </Box>
-        <Box flex={1}>
-          <DrawerContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
+        {isSidebarOpen && (
+          <Sidebar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
+        )}
+
+        <DrawerContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
+          <Box sx={{ width: isSidebarOpen ? "calc(100% - 240px)" : "100%" }}>
             {children}
-          </DrawerContext.Provider>
-        </Box>
+          </Box>
+        </DrawerContext.Provider>
       </Stack>
     </>
   );

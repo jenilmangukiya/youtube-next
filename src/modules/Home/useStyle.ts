@@ -6,7 +6,7 @@ export const useStyle = (): IStyle => ({
     px: 3,
     gap: 2,
     display: "flex",
-    overflowX: "scroll",
+    overflowX: "auto",
     "::-webkit-scrollbar": { width: 0 }
   },
   videosContainer: {
