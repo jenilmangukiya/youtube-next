@@ -15,6 +15,8 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { useScreenSize } from "@app/Hooks";
+
 import { SidebarProps } from "./types";
 import { useStyle } from "./useStyle";
 import { sidebarMenu } from "./utils";
@@ -26,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const theme = useTheme();
   const router = useRouter();
   const { drawer } = useStyle(theme);
+  const { isLg: isLargeScreen } = useScreenSize();
 
   return (
     <Drawer
@@ -33,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       open={isSidebarOpen}
       onClose={() => setIsSidebarOpen(false)}
       sx={drawer}
-      variant="persistent"
+      variant={!isLargeScreen ? "temporary" : "persistent"}
     >
       <Box width={240}>
         <Stack

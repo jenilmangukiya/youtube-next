@@ -7,15 +7,15 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     background: { default: COLORS.base_background, paper: COLORS.base_paper },
-    primary: { main: "#2196f3", contrastText: "#fff" },
-    secondary: { main: "#f50057" },
+    primary: { main: COLORS.primary_main, contrastText: COLORS.primary_text },
+    secondary: { main: COLORS.secondary_main },
     white: {
-      main: "#fff",
-      dark: "#fff"
+      main: COLORS.white,
+      dark: COLORS.white
     },
     gray: {
-      main: "#2c2727",
-      dark: "#424242"
+      main: COLORS.gray_main,
+      dark: COLORS.gray_dark
     }
   },
   components: componentOverride

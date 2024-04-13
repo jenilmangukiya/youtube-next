@@ -23,15 +23,21 @@ import {
   useTheme
 } from "@mui/material";
 
+import { useScreenSize } from "@app/Hooks";
+
 import { MenuUserDetails } from "./components";
 import { useRightSideHeaderMenus } from "./useRightSideHeaderMenus";
 import { useStyle } from "./useStyle";
 
 const RightSideHeaderMenus = () => {
   const theme = useTheme();
+  const { isXs } = useScreenSize();
+
   const { popupRoot, avatarStyle } = useStyle(theme);
+
   const { handleClick, handleClose, open, anchorEl } =
     useRightSideHeaderMenus();
+
   return (
     <React.Fragment>
       <Stack
@@ -40,8 +46,12 @@ const RightSideHeaderMenus = () => {
         alignItems="center"
         gap={3}
       >
-        <VideoCall />
-        <NotificationsOutlined />
+        {!isXs && (
+          <>
+            <VideoCall />
+            <NotificationsOutlined />
+          </>
+        )}
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}

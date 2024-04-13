@@ -5,6 +5,7 @@ import { Box, Chip } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
+import { useScreenSize } from "@app/Hooks";
 
 import { useStyle } from "./useStyle";
 const content = {
@@ -40,14 +41,15 @@ const categories = [
 ];
 
 const Home = () => {
-  const { chipsContainer, videosContainer } = useStyle();
   const router = useRouter();
+  const { chipsContainer, videosContainer } = useStyle();
 
   const { setIsSidebarOpen } = useDrawer() as any;
+  const { isLg: isLargeScreen } = useScreenSize();
 
   useLayoutEffect(() => {
-    setIsSidebarOpen(true);
-  }, [setIsSidebarOpen]);
+    isLargeScreen && setIsSidebarOpen(true);
+  }, [isLargeScreen, setIsSidebarOpen]);
 
   return (
     <>

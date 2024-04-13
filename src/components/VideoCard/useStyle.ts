@@ -15,5 +15,12 @@ export const useStyle = (sx: any): IStyle => ({
     lineHeight: "1.4rem",
     fontWeight: "bold",
     color: "white"
+  },
+  customCaption: {
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    WebkitLineClamp: 2
   }
 });

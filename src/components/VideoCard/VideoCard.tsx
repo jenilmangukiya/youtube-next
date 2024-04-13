@@ -26,35 +26,34 @@ const VideoCard: React.FC<VideoCardProps> = ({
   sx,
   ...rest
 }) => {
-  const { customTypography, cardContainer } = useStyle(sx);
+  const { customTypography, cardContainer, customCaption } = useStyle(sx);
   const isSmall = size === "small";
 
   if (variant === "horizontal") {
     return (
       <Card
         sx={{
-          maxWidth: isSmall ? 400 : 964,
-          minWidth: isSmall ? 400 : 2000,
           ...cardContainer
         }}
         {...rest}
       >
         <Stack direction={"row"}>
-          <Box width={"50%"}>
+          <Box>
             <CardMedia
               component="img"
-              height={isSmall ? 96 : 240}
-              width={isSmall ? 172 : 1072}
               image={thumbnail}
               alt="Not Found"
-              sx={{ borderRadius: "8px" }}
+              sx={{
+                borderRadius: "8px",
+                maxHeight: "820px",
+                maxWidth: "1200px"
+              }}
             />
           </Box>
           <CardContent
             sx={{
               backgroundColor: "transparent",
               py: 0,
-              width: "50%",
               "&.MuiCardContent-root": {
                 pb: 0
               }
@@ -63,7 +62,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
             <Stack direction="row" gap={2}>
               <Box>
                 <Typography
-                  variant={isSmall ? "subtitle2" : "h6"}
+                  variant={isSmall ? "subtitle2" : "inherit"}
                   sx={customTypography}
                 >
                   {title}
@@ -72,32 +71,27 @@ const VideoCard: React.FC<VideoCardProps> = ({
                   <Typography
                     variant="caption"
                     component={"p"}
-                    pt={isSmall ? 0.3 : 2}
+                    pt={isSmall ? 0.3 : { lg: 2, xs: 0.2 }}
                   >
                     <Stack direction={"row"} alignItems={"center"} gap={1}>
-                      {!isSmall && (
-                        <Avatar
-                          {...stringAvatar("Kent Dodds")}
-                          sx={{ width: 22, height: 22 }}
-                          sizes="8px"
-                        />
-                      )}{" "}
+                      {!isSmall && <Avatar {...stringAvatar("Kent Dodds")} />}{" "}
                       {owner}
                     </Stack>
                   </Typography>
-                  <Typography
-                    variant="caption"
-                    component={"p"}
-                    pt={isSmall ? 0.3 : 0.3}
-                  >
+                  <Typography variant="caption" component={"p"} pt={0.3}>
                     <Stack direction={"row"} alignItems={"center"} gap={1}>
                       {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
                       {createdAt}
                     </Stack>
                   </Typography>
                 </Stack>
-                {caption && (
-                  <Typography variant="caption" component={"p"} pt={2}>
+                {caption && !isSmall && (
+                  <Typography
+                    variant="caption"
+                    component={"p"}
+                    pt={{ lg: 2, xs: 0.2 }}
+                    sx={customCaption}
+                  >
                     {caption}
                   </Typography>
                 )}

@@ -6,6 +6,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
+import { useScreenSize } from "@app/Hooks";
 
 import {
   VideoPlayer,
@@ -20,15 +21,18 @@ const content = {
   createdAt: "1 day ago",
   owner: "Carry Minati Live",
   views: "837K",
-  thumbnail: "/img.jpg"
+  thumbnail: "/img.jpg",
+  caption:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum adipisci tempore rerum repellendus assumenda maiores quisquam laborum, odit libero at, nulla hic totam. Officia sapiente, doloremque nulla debitis modi iure!"
 };
 
 const videoTitle =
   "End Year Gangsters Mashup 2023 | 1 Hour Nonstop Mashup | DJ Sumit Rajwanshi | Nonstop Jukebox 2023";
 
 const Video = () => {
-  const { setIsSidebarOpen } = useDrawer() as any;
   const router = useRouter();
+  const { setIsSidebarOpen } = useDrawer() as any;
+  const { isLg: isLargeScreen } = useScreenSize();
 
   useLayoutEffect(() => {
     setIsSidebarOpen(false);
@@ -46,13 +50,13 @@ const Video = () => {
           <VideoCaption />
           <Comments />
         </Box>
-        <Stack width={"602px"} gap={2} sx={{ overflow: "hidden" }}>
+        <Stack width={{ lg: "602px" }} gap={2} sx={{ overflow: "hidden" }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
             return (
               <VideoCard
                 {...content}
                 variant="horizontal"
-                size="small"
+                size={isLargeScreen ? "small" : "large"}
                 key={item}
                 onClick={() => {
                   router.push("/v/" + item);
