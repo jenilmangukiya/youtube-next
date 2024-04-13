@@ -24,10 +24,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
   caption,
   size = "small",
   sx,
+  hideChannel = false,
+  cardImageProps = {},
   ...rest
 }) => {
-  const { customTypography, cardContainer, customCaption } = useStyle(sx);
   const isSmall = size === "small";
+  const { sx: sxCardMedia, ...restCardMedia } = cardImageProps;
+  const { customTypography, cardContainer, customCaption } = useStyle(sx);
 
   if (variant === "horizontal") {
     return (
@@ -46,8 +49,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
               sx={{
                 borderRadius: "8px",
                 maxHeight: "820px",
-                maxWidth: "1200px"
+                maxWidth: "1200px",
+                ...sxCardMedia
               }}
+              {...restCardMedia}
             />
           </Box>
           <CardContent
@@ -73,10 +78,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
                     component={"p"}
                     pt={isSmall ? 0.3 : { lg: 2, xs: 0.2 }}
                   >
-                    <Stack direction={"row"} alignItems={"center"} gap={1}>
-                      {!isSmall && <Avatar {...stringAvatar("Kent Dodds")} />}{" "}
-                      {owner}
-                    </Stack>
+                    {!hideChannel && (
+                      <Stack direction={"row"} alignItems={"center"} gap={1}>
+                        {!isSmall && <Avatar {...stringAvatar("Kent Dodds")} />}{" "}
+                        {owner}
+                      </Stack>
+                    )}
                   </Typography>
                   <Typography variant="caption" component={"p"} pt={0.3}>
                     <Stack direction={"row"} alignItems={"center"} gap={1}>
@@ -115,7 +122,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
         height="210"
         image={thumbnail}
         alt="Not Found"
-        sx={{ borderRadius: "12px" }}
+        sx={{ borderRadius: "12px", ...sxCardMedia }}
+        {...restCardMedia}
       />
       <CardContent sx={{ backgroundColor: "transparent", px: 0 }}>
         <Stack direction="row" gap={2}>
@@ -125,9 +133,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
               {title}
             </Typography>
             <Box>
-              <Typography variant="body2" mt={0.3}>
-                {owner}
-              </Typography>
+              {!hideChannel && (
+                <Typography variant="body2" mt={0.3}>
+                  {owner}
+                </Typography>
+              )}
               <Typography variant="caption" mt={0.3}>
                 <Stack direction={"row"} alignItems={"center"} gap={1}>
                   {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}

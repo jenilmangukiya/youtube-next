@@ -64,9 +64,17 @@ const Sidebar: React.FC<SidebarProps> = ({
           />
         </Stack>
         <List sx={{ top: 60, bgcolor: theme.palette.background.default }}>
-          {sidebarMenu.map((item) => (
+          {sidebarMenu.map((item: any) => (
             <>
-              <ListItem key={item.label} disablePadding>
+              <ListItem
+                key={item.label}
+                disablePadding
+                onClick={() => {
+                  if (item?.href) {
+                    router.push(item?.href);
+                  }
+                }}
+              >
                 <ListItemButton sx={{ pl: 3 }}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText
@@ -75,6 +83,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   />
                 </ListItemButton>
               </ListItem>
+
               {item.isLast ? (
                 <Divider variant="middle" sx={{ opacity: 0.6, my: 2 }} />
               ) : null}

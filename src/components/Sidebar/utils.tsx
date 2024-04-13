@@ -15,26 +15,31 @@ import {
 const subscriptionsMenu = [
   {
     label: "Jenil Mangukiya",
-    icon: <PersonOutline />
+    icon: <PersonOutline />,
+    href: "/c/channel"
   },
   {
     label: "Raj jasoliya",
-    icon: <PersonOutline />
+    icon: <PersonOutline />,
+    href: "/c/channel"
   },
   {
     label: "Bhautik maniya",
-    icon: <PersonOutline />
+    icon: <PersonOutline />,
+    href: "/c/channel"
   },
   {
     label: "Yash kakadiya",
     icon: <PersonOutline />,
+    href: "/c/channel",
     isLast: true
   }
 ];
 export const sidebarMenu = [
   {
     label: "Home",
-    icon: <HomeOutlined />
+    icon: <HomeOutlined />,
+    href: "/"
   },
   {
     label: "Subscription",
@@ -44,11 +49,13 @@ export const sidebarMenu = [
 
   {
     label: "Your channel",
-    icon: <AccountBoxOutlined />
+    icon: <AccountBoxOutlined />,
+    href: "/c/channel"
   },
   {
     label: "History",
-    icon: <HistoryOutlined />
+    icon: <HistoryOutlined />,
+    href: "/results"
   },
   {
     label: "Your videos",
