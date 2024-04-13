@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Box, Stack } from "@mui/material";
 
 import { DrawerContext, Header, Sidebar } from "@app/components";
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 export default function RootLayout({
   children

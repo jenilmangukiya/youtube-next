@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 import { SidebarProps } from "./types";
 import { useStyle } from "./useStyle";

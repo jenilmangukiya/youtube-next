@@ -5,7 +5,7 @@ import { Box, Chip } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 import { useStyle } from "./useStyle";
 const content = {

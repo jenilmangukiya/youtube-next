@@ -6,7 +6,7 @@ import { Box, IconButton, Stack, TextField, useTheme } from "@mui/material";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 import { RightSideHeaderMenus } from "./components";
 import { HeaderProps } from "./types";

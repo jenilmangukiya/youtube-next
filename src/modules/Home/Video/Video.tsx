@@ -6,7 +6,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 import {
   VideoPlayer,

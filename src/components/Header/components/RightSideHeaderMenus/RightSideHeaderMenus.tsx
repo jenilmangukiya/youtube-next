@@ -23,7 +23,7 @@ import {
   useTheme
 } from "@mui/material";
 
-import { useScreenSize } from "@app/Hooks";
+import { useScreenSize } from "@app/hooks";
 
 import { MenuUserDetails } from "./components";
 import { useRightSideHeaderMenus } from "./useRightSideHeaderMenus";
