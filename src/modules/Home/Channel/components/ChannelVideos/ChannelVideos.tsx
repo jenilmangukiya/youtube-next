@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard } from "@app/components";
@@ -14,6 +14,7 @@ const content = {
 
 const ChannelVideos = () => {
   const router = useRouter();
+  const theme = useTheme();
   return (
     <Stack direction={"row"} flexWrap={"wrap"}>
       {[1, 2, 3, 4, 5, 6, 12, 7, 8, 9, 0].map((item) => {
@@ -29,6 +30,10 @@ const ChannelVideos = () => {
               hideChannel={true}
               onClick={() => {
                 router.push("/v/" + item);
+              }}
+              titleProps={{
+                variant: "body2",
+                sx: { color: theme.palette.white?.main }
               }}
               cardImageProps={{
                 sx: {

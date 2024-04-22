@@ -1,6 +1,6 @@
 import { IStyle } from "@app/types";
 
-export const useStyle = (sx: any): IStyle => ({
+export const useStyle = (sx: any, sxTitleProps: any): IStyle => ({
   cardContainer: {
     background: "none",
     cursor: "pointer",
@@ -14,7 +14,8 @@ export const useStyle = (sx: any): IStyle => ({
     WebkitLineClamp: 2,
     lineHeight: "1.4rem",
     fontWeight: "bold",
-    color: "white"
+    color: "white",
+    ...sxTitleProps
   },
   customCaption: {
     display: "-webkit-box",

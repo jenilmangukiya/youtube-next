@@ -15,6 +15,7 @@ import {
   Typography,
   useTheme
 } from "@mui/material";
+import Link from "next/link";
 
 import { stringAvatar } from "@app/utils";
 
@@ -29,15 +30,25 @@ const VideoActions = () => {
       >
         <Box>
           <Stack direction={"row"} gap={2} mt={1} alignItems={"center"}>
-            <Avatar
-              {...stringAvatar("Kent Dodds")}
-              sx={{ width: 42, height: 42 }}
-              sizes="8px"
-            />
-            <Stack direction={"column"}>
-              <Typography variant="subtitle2">SR Music Official </Typography>{" "}
-              <Typography variant="caption">1.41M subscribers</Typography>
-            </Stack>
+            <Link href={"/c/channel"} style={{ textDecoration: "none" }}>
+              <Stack direction={"row"} gap={2} sx={{ cursor: "pointer" }}>
+                <Avatar
+                  {...stringAvatar("Kent Dodds")}
+                  sx={{ width: 42, height: 42 }}
+                  sizes="8px"
+                />
+                <Stack direction={"column"}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ color: theme.palette.white?.main }}
+                    fontWeight={700}
+                  >
+                    SR Music Official{" "}
+                  </Typography>{" "}
+                  <Typography variant="caption">1.41M subscribers</Typography>
+                </Stack>
+              </Stack>
+            </Link>
             <Button
               color="white"
               variant="contained"

@@ -5,6 +5,7 @@ import { Box, Tab, Tabs } from "@mui/material";
 import Image from "next/image";
 
 import { ChannelVideos, Overview } from "./components";
+import { ChannelPlaylist } from "./components/ChannelPlaylist";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -74,7 +75,7 @@ const Channel = () => {
           <ChannelVideos />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          Playlists
+          <ChannelPlaylist />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           Tweets

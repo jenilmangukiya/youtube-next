@@ -1,4 +1,4 @@
-import { CardMediaProps, CardProps } from "@mui/material";
+import { CardMediaProps, CardProps, TypographyProps } from "@mui/material";
 
 export interface VideoCardProps extends Omit<CardProps, "variant"> {
   thumbnail: string;
@@ -11,4 +11,5 @@ export interface VideoCardProps extends Omit<CardProps, "variant"> {
   size?: "small" | "large";
   hideChannel?: boolean;
   cardImageProps?: CardMediaProps;
+  titleProps?: TypographyProps;
 }

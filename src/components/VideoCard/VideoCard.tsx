@@ -8,6 +8,7 @@ import {
   Stack,
   Typography
 } from "@mui/material";
+import Image from "next/image";
 
 import { stringAvatar } from "@app/utils";
 
@@ -26,11 +27,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
   sx,
   hideChannel = false,
   cardImageProps = {},
+  titleProps = {},
   ...rest
 }) => {
+  const { sx: sxTitleProps, ...restTitleProps } = titleProps;
   const isSmall = size === "small";
   const { sx: sxCardMedia, ...restCardMedia } = cardImageProps;
-  const { customTypography, cardContainer, customCaption } = useStyle(sx);
+  const { customTypography, cardContainer, customCaption } = useStyle(
+    sx,
+    sxTitleProps
+  );
 
   if (variant === "horizontal") {
     return (
@@ -41,18 +47,28 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {...rest}
       >
         <Stack direction={"row"}>
-          <Box>
-            <CardMedia
-              component="img"
-              image={thumbnail}
-              alt="Not Found"
-              sx={{
-                borderRadius: "8px",
-                maxHeight: "820px",
-                maxWidth: "1200px",
-                ...sxCardMedia
+          <Box
+            sx={{
+              borderRadius: "8px",
+              width: "100%",
+              minWidth: "200px",
+              maxWidth: "500px",
+              height: "100%",
+              ...sxCardMedia
+            }}
+          >
+            <Image
+              src={thumbnail}
+              alt="profile pic"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "12px"
               }}
-              {...restCardMedia}
             />
           </Box>
           <CardContent
@@ -69,6 +85,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                 <Typography
                   variant={isSmall ? "subtitle2" : "inherit"}
                   sx={customTypography}
+                  {...restTitleProps}
                 >
                   {title}
                 </Typography>
@@ -129,7 +146,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <Stack direction="row" gap={2}>
           <Avatar {...stringAvatar("John Doe")} />
           <Box>
-            <Typography variant="body1" sx={customTypography}>
+            <Typography
+              variant="body1"
+              sx={customTypography}
+              {...restTitleProps}
+            >
               {title}
             </Typography>
             <Box>
