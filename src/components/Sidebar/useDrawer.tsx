@@ -1,6 +1,6 @@
-import { createContext, useContext } from "react";
+import { useContext } from "react";
 
-export const DrawerContext = createContext({});
+import { DrawerContext } from "@app/context";
 
 export const useDrawer = () => {
   const context = useContext(DrawerContext);

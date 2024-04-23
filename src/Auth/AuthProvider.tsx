@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
 import PageLoader from "@app/components/PageLoader";
+import { AuthContext } from "@app/context";
 import { getCookie } from "@app/utils";
 
-import { AuthContext } from "./auth-context";
 import AxiosResponseInterceptors from "./AxiosResponseInterceptors";
 import { UserType } from "./types";
 import { refreshAccessToken } from "./utils";

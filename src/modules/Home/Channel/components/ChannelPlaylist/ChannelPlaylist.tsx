@@ -9,7 +9,7 @@ const ChannelPlaylist = () => {
       <Stack direction={"row"} flexWrap={"wrap"}>
         {[1, 2, 3, 4, 5].map((item) => {
           return (
-            <Box width={"33%"} key={item} padding={1}>
+            <Box width={"25%"} key={item} padding={1}>
               <Link href={"/pl/list1"} style={{ textDecoration: "none" }}>
                 <Image
                   src="/img2.jpg"
@@ -19,7 +19,7 @@ const ChannelPlaylist = () => {
                   sizes="100vw"
                   style={{
                     width: "100%",
-                    height: "180px",
+                    height: "150px",
                     objectFit: "cover",
                     borderRadius: "12px"
                   }}

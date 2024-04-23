@@ -1,11 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import { Box, Tab, Tabs } from "@mui/material";
 import Image from "next/image";
 
+import { useDrawer } from "@app/components";
+import { useScreenSize } from "@app/hooks";
+
 import { ChannelVideos, Overview } from "./components";
 import { ChannelPlaylist } from "./components/ChannelPlaylist";
+import { ChannelTweets } from "./components/ChannelTweets";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -38,6 +42,13 @@ function a11yProps(index: number) {
 
 const Channel = () => {
   const [value, setValue] = useState(0);
+
+  const { isLg: isLargeScreen } = useScreenSize();
+  const { setIsSidebarOpen } = useDrawer();
+
+  useLayoutEffect(() => {
+    isLargeScreen && setIsSidebarOpen(true);
+  }, [isLargeScreen, setIsSidebarOpen]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -78,7 +89,7 @@ const Channel = () => {
           <ChannelPlaylist />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          Tweets
+          <ChannelTweets />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
           Subscribed
