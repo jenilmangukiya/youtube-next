@@ -9,6 +9,10 @@ export const theme = createTheme({
     background: { default: COLORS.base_background, paper: COLORS.base_paper },
     primary: { main: COLORS.primary_main, contrastText: COLORS.primary_text },
     secondary: { main: COLORS.secondary_main },
+    text: {
+      primary: COLORS.white,
+      secondary: COLORS.light_text
+    },
     white: {
       main: COLORS.white,
       dark: COLORS.white

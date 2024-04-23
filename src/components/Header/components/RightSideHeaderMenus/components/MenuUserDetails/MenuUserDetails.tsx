@@ -28,7 +28,9 @@ const MenuUserDetails = () => {
           </Typography>
         </strong>
         <Link href={"/"} style={linkStyle}>
-          <Typography variant="subtitle2">View your channel</Typography>
+          <Typography variant="subtitle2" fontWeight={700}>
+            View your channel
+          </Typography>
         </Link>
       </Box>
     </Stack>

@@ -21,7 +21,7 @@ export const useStyle = (theme: Theme, open: boolean): IStyle => ({
     right: 8,
     background: theme.palette.background.paper,
     px: 1,
-    color: theme.palette.white?.main,
+    color: theme.palette.text.primary,
     cursor: "pointer"
   }
 });

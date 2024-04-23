@@ -28,11 +28,13 @@ const ChannelPlaylist = () => {
                   variant="body1"
                   fontWeight={700}
                   mb={1}
-                  sx={{ color: theme.palette.white?.main }}
+                  color={"text.primary"}
                 >
                   This is the title
                 </Typography>
-                <Typography variant="body2">View full playlist</Typography>
+                <Typography variant="body2" color={"text.secondary"}>
+                  View full playlist
+                </Typography>
               </Link>
             </Box>
           );

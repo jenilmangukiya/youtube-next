@@ -32,8 +32,7 @@ const ChannelVideos = () => {
                 router.push("/v/" + item);
               }}
               titleProps={{
-                variant: "body2",
-                sx: { color: theme.palette.white?.main }
+                variant: "body2"
               }}
               cardImageProps={{
                 sx: {

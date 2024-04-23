@@ -7,7 +7,7 @@ export const useStyle = (theme: Theme) => ({
     backgroundColor: "gray"
   },
   linkStyle: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     fontSize: 14,
     textDecoration: "none"
   }

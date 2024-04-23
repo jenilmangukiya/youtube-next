@@ -93,6 +93,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                   <Typography
                     variant="caption"
                     component={"p"}
+                    color={"text.secondary"}
                     pt={isSmall ? 0.3 : { lg: 2, xs: 0.2 }}
                   >
                     {!hideChannel && (
@@ -102,7 +103,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
                       </Stack>
                     )}
                   </Typography>
-                  <Typography variant="caption" component={"p"} pt={0.3}>
+                  <Typography
+                    variant="caption"
+                    component={"p"}
+                    pt={0.3}
+                    color={"text.secondary"}
+                  >
                     <Stack direction={"row"} alignItems={"center"} gap={1}>
                       {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
                       {createdAt}
@@ -155,11 +161,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
             </Typography>
             <Box>
               {!hideChannel && (
-                <Typography variant="body2" mt={0.3}>
+                <Typography variant="body2" mt={0.3} color={"text.secondary"}>
                   {owner}
                 </Typography>
               )}
-              <Typography variant="caption" mt={0.3}>
+              <Typography variant="caption" mt={0.3} color={"text.secondary"}>
                 <Stack direction={"row"} alignItems={"center"} gap={1}>
                   {views} views <FiberManualRecord sx={{ width: 8 }} />{" "}
                   {createdAt}

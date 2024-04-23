@@ -7,9 +7,9 @@ import Image from "next/image";
 import { useDrawer } from "@app/components";
 import { useScreenSize } from "@app/hooks";
 
-import { ChannelVideos, Overview } from "./components";
-import { ChannelPlaylist } from "./components/ChannelPlaylist";
-import { ChannelTweets } from "./components/ChannelTweets";
+import { ChannelSubscribers, ChannelVideos, Overview } from "./components";
+import { ChannelPlaylist } from "./components";
+import { ChannelTweets } from "./components";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -92,7 +92,7 @@ const Channel = () => {
           <ChannelTweets />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
-          Subscribed
+          <ChannelSubscribers />
         </CustomTabPanel>
       </Box>
     </div>

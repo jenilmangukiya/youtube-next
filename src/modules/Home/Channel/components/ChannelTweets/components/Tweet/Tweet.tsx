@@ -44,7 +44,9 @@ const Tweet = (props: StackProps) => {
           </Typography>
           <Stack direction={"row"} alignItems={"center"} gap={2} mt={1}>
             <ThumbUpOutlined fontSize={"small"} />
-            <Typography variant="caption">896</Typography>
+            <Typography variant="caption" color={"text.secondary"}>
+              896
+            </Typography>
             <ThumbDownOutlined fontSize={"small"} />
           </Stack>
         </Box>

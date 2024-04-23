@@ -40,12 +40,14 @@ const VideoActions = () => {
                 <Stack direction={"column"}>
                   <Typography
                     variant="subtitle2"
-                    sx={{ color: theme.palette.white?.main }}
+                    color={"text.primary"}
                     fontWeight={700}
                   >
                     SR Music Official{" "}
                   </Typography>{" "}
-                  <Typography variant="caption">1.41M subscribers</Typography>
+                  <Typography variant="caption" color={"text.secondary"}>
+                    1.41M subscribers
+                  </Typography>
                 </Stack>
               </Stack>
             </Link>

@@ -63,7 +63,7 @@ const Playlist = () => {
           <IconButton sx={{ background: "#ffffff1a" }}>
             <PlaylistAdd />
           </IconButton>
-          <IconButton sx={{ background: "#ffffff1a", transform: 180 }}>
+          <IconButton sx={{ background: "#ffffff1a" }}>
             <Share />
           </IconButton>
           <IconButton sx={{ background: "#ffffff1a" }}>
