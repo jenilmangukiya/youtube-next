@@ -2,6 +2,7 @@
 import { Stack } from "@mui/material";
 
 import { VideoCard } from "@app/components";
+import { useScreenSize } from "@app/hooks";
 
 const content = {
   title:
@@ -25,6 +26,7 @@ const resultList = [
 ];
 
 const Results = () => {
+  const { isXs } = useScreenSize();
   return (
     <>
       <Stack width={"90%"} mx={"auto"} mt={4} gap={2}>
@@ -33,7 +35,7 @@ const Results = () => {
             <VideoCard
               {...item}
               key={index}
-              variant="horizontal"
+              variant={isXs ? "vertical" : "horizontal"}
               size="large"
             />
           );

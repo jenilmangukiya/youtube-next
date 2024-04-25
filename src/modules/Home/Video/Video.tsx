@@ -39,9 +39,9 @@ const Video = () => {
   }, [setIsSidebarOpen]);
 
   return (
-    <Box mx={4} mt={2}>
+    <Box mx={{ xs: 2, sm: 3, md: 4 }} mt={2}>
       <Stack direction={{ md: "column", lg: "row" }}>
-        <Box width={"100%"} mb={8} pr={4}>
+        <Box width={"100%"} mb={8} pr={{ md: 0, lg: 4 }}>
           <VideoPlayer />
           <Typography variant="h6" mt={1} fontWeight={"700"}>
             {videoTitle}
@@ -55,8 +55,8 @@ const Video = () => {
             return (
               <VideoCard
                 {...content}
-                variant="horizontal"
-                size={isLargeScreen ? "small" : "large"}
+                variant={isLargeScreen ? "horizontal" : "vertical"}
+                size={isLargeScreen ? "small" : "small"}
                 key={item}
                 onClick={() => {
                   router.push("/v/" + item);

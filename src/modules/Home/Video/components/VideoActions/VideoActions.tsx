@@ -7,7 +7,6 @@ import {
 } from "@mui/icons-material";
 import {
   Avatar,
-  Box,
   Button,
   ButtonGroup,
   IconButton,
@@ -17,19 +16,29 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
+import { useScreenSize } from "@app/hooks";
 import { stringAvatar } from "@app/utils";
 
 const VideoActions = () => {
   const theme = useTheme();
+  const { isXs: isMobile, isSm } = useScreenSize();
   return (
     <div>
       <Stack
-        direction={{ sm: "column", lg: "row" }}
+        direction={{ xs: "column", sm: "row" }}
         justifyContent={"space-between"}
         alignItems={"center"}
+        gap={2}
+        mt={1}
       >
-        <Box>
-          <Stack direction={"row"} gap={2} mt={1} alignItems={"center"}>
+        <Stack direction={"row"} justifyContent={"flex-start"} width={"100%"}>
+          <Stack
+            direction={"row"}
+            gap={2}
+            alignItems={"center"}
+            justifyContent={{ xs: "space-between", sm: "flex-start" }}
+            width={"100%"}
+          >
             <Link href={"/c/channel"} style={{ textDecoration: "none" }}>
               <Stack direction={"row"} gap={2} sx={{ cursor: "pointer" }}>
                 <Avatar
@@ -60,25 +69,37 @@ const VideoActions = () => {
               Subscribe
             </Button>
           </Stack>
-        </Box>
-        <Stack alignItems={"center"} direction={"row"} gap={2}>
-          <ButtonGroup
-            disableElevation
-            color="gray"
-            variant="contained"
-            aria-label=" button group"
-          >
-            <Button sx={{ textTransform: "none" }} startIcon={<ThumbUp />}>
-              Like
-            </Button>
-            <Button startIcon={<ThumbDown />}></Button>
-          </ButtonGroup>
-          <Button variant="contained" color="gray" startIcon={<Share />}>
-            Share
-          </Button>
-          <Button variant="contained" color="gray" startIcon={<Download />}>
-            Download
-          </Button>
+        </Stack>
+        <Stack
+          alignItems={"center"}
+          direction={"row"}
+          gap={1}
+          width={"100%"}
+          justifyContent={{ xs: "space-between", sm: "flex-end" }}
+        >
+          <Stack direction={"row"} gap={1}>
+            <ButtonGroup
+              disableElevation
+              color="gray"
+              variant="contained"
+              aria-label=" button group"
+            >
+              <Button sx={{ textTransform: "none" }} startIcon={<ThumbUp />}>
+                20k
+              </Button>
+              <Button startIcon={<ThumbDown />}></Button>
+            </ButtonGroup>
+            {!(isSm || isMobile) && (
+              <Button variant="contained" color="gray" startIcon={<Share />}>
+                {!isMobile && "Share"}
+              </Button>
+            )}
+            {!(isSm || isMobile) && (
+              <Button variant="contained" color="gray" startIcon={<Download />}>
+                {!isMobile && "Download"}
+              </Button>
+            )}
+          </Stack>
           <IconButton
             sx={{
               backgroundColor: theme.palette.gray?.main,

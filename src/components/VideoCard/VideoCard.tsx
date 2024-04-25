@@ -171,7 +171,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
                   {createdAt}
                 </Stack>
               </Typography>
-              <Typography variant="caption">{caption}</Typography>
+              <Typography variant="caption" sx={customCaption}>
+                {caption}
+              </Typography>
             </Box>
           </Box>
         </Stack>
