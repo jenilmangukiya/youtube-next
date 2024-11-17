@@ -20,6 +20,7 @@ export const Results = () => {
               thumbnail={item.thumbnail}
               title={item.title}
               views={item.views}
+              caption={item.caption}
               key={index}
               variant={isXs ? "vertical" : "horizontal"}
               size="large"
