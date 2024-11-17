@@ -17,7 +17,7 @@ const content = {
   title:
     "Shree Radha Rani Mashup 2023 - (Radha Ashtami Special) - HS Visual Music x Papul | New Bhajan Songs asdf asdf asdf asfg asfg asfg asf gadf gaf basdfg as fd",
   createdAt: "1 day ago",
-  owner: "Carry Minati Live",
+  owner: "John rock",
   views: "837K",
   thumbnail: "https://source.unsplash.com/random?wallpapers"
 };

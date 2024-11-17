@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Download,
   MoreVert,
@@ -9,19 +10,14 @@ import {
 } from "@mui/icons-material";
 import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { VideoCard } from "@app/components";
-
-const content = {
-  title:
-    "Shree Radha Rani Mashup 2023 - (Radha Ashtami Special) - HS Visual Music x Papul | New Bhajan Songs asdf asdf asdf asfg asfg asfg asf gadf gaf basdfg as fd",
-  createdAt: "1 day ago",
-  owner: "Carry Minati Live",
-  views: "837K",
-  thumbnail: "/img.jpg"
-};
+import { videos } from "@app/utils/videos";
 
 const Playlist = () => {
+  const router = useRouter();
+
   return (
     <Stack
       direction={"row"}
@@ -40,7 +36,7 @@ const Playlist = () => {
         }}
       >
         <Image
-          src="/img2.jpg"
+          src="/img1.jpg"
           alt="image"
           width={0}
           height={0}
@@ -96,14 +92,20 @@ const Playlist = () => {
         p={1}
         sx={{ overflowY: "scroll", scrollbarWidth: "none" }}
       >
-        {[1, 2, 3, 4, 5, 6, 78, 8, 90, 0, 8].map((item) => {
+        {videos.map((item) => {
           return (
-            <Box key={item}>
+            <Box key={item.owner}>
               <VideoCard
-                {...content}
-                key={item}
+                createdAt={item.createdAt}
+                owner={item.owner}
+                thumbnail={item.thumbnail}
+                title={item.title}
+                views={item.views}
                 variant="horizontal"
                 size="small"
+                onClick={() => {
+                  router.push("/v/" + item.title);
+                }}
               />
             </Box>
           );

@@ -14,22 +14,22 @@ import {
 
 const subscriptionsMenu = [
   {
-    label: "Jenil Mangukiya",
+    label: "John doe",
     icon: <PersonOutline />,
     href: "/c/channel"
   },
   {
-    label: "Raj jasoliya",
+    label: "Rock kar",
     icon: <PersonOutline />,
     href: "/c/channel"
   },
   {
-    label: "Bhautik maniya",
+    label: "Karl john",
     icon: <PersonOutline />,
     href: "/c/channel"
   },
   {
-    label: "Yash kakadiya",
+    label: "Red normal",
     icon: <PersonOutline />,
     href: "/c/channel",
     isLast: true
@@ -59,11 +59,13 @@ export const sidebarMenu = [
   },
   {
     label: "Your videos",
-    icon: <VideoCameraBackOutlined />
+    icon: <VideoCameraBackOutlined />,
+    href: "/c/channel"
   },
   {
     label: "Watch later",
     icon: <WatchLaterOutlined />,
+    href: "/pl/list1",
     isLast: true
   },
   ...subscriptionsMenu,

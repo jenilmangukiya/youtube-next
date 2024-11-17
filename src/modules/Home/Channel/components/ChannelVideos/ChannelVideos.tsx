@@ -1,35 +1,31 @@
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { VideoCard } from "@app/components";
-
-const content = {
-  title:
-    "Shree Radha Rani Mashup 2023 - (Radha Ashtami Special) - HS Visual Music x Papul | New Bhajan Songs asdf asdf asdf asfg asfg asfg asf gadf gaf basdfg as fd",
-  createdAt: "1 day ago",
-  owner: "Carry Minati Live",
-  views: "837K",
-  thumbnail: "/img.jpg"
-};
+import { videos } from "@app/utils/videos";
 
 const ChannelVideos = () => {
   const router = useRouter();
-  const theme = useTheme();
+
   return (
     <Stack direction={"row"} flexWrap={"wrap"}>
-      {[1, 2, 3, 4, 5, 6, 12, 7, 8, 9, 0].map((item) => {
+      {videos.slice(0, 10).map((item) => {
         return (
           <Box
-            key={item}
+            key={item.thumbnail}
             padding={1}
             width={{ md: "33.33%", lg: "25%", sm: "50%", xs: "100%" }}
           >
             <VideoCard
-              {...content}
+              createdAt={item.createdAt}
+              owner={item.owner}
+              thumbnail={item.thumbnail}
+              title={item.title}
+              views={item.views}
               sx={{ width: "100%" }}
               hideChannel={true}
               onClick={() => {
-                router.push("/v/" + item);
+                router.push("/v/" + item.title);
               }}
               titleProps={{
                 variant: "body2"

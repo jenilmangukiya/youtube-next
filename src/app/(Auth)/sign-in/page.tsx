@@ -1,7 +1,8 @@
-import { SignIn } from "@app/modules";
+// import { SignIn } from "@app/modules";
 
 const page = () => {
-  return <SignIn />;
+  return <></>;
+  // return <SignIn />;
 };
 
 export default page;

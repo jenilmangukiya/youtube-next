@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { Box, Stack } from "@mui/material";
 
@@ -20,30 +20,32 @@ export default function RootLayout({
 
   return (
     <>
-      <Header
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+      <Suspense>
+        <Header
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
 
-      <Stack direction={"row"}>
-        {isSidebarOpen && (
-          <Sidebar
-            isSidebarOpen={isSidebarOpen}
-            setIsSidebarOpen={setIsSidebarOpen}
-          />
-        )}
+        <Stack direction={"row"}>
+          {isSidebarOpen && (
+            <Sidebar
+              isSidebarOpen={isSidebarOpen}
+              setIsSidebarOpen={setIsSidebarOpen}
+            />
+          )}
 
-        <DrawerContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
-          <Box
-            sx={{
-              width:
-                isSidebarOpen && isLargeScreen ? "calc(100% - 240px)" : "100%"
-            }}
-          >
-            {children}
-          </Box>
-        </DrawerContext.Provider>
-      </Stack>
+          <DrawerContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
+            <Box
+              sx={{
+                width:
+                  isSidebarOpen && isLargeScreen ? "calc(100% - 240px)" : "100%"
+              }}
+            >
+              {children}
+            </Box>
+          </DrawerContext.Provider>
+        </Stack>
+      </Suspense>
     </>
   );
 }

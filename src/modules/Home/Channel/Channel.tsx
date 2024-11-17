@@ -57,7 +57,7 @@ const Channel = () => {
     <div>
       <Box mx={"6%"}>
         <Image
-          src={"/img.jpg"}
+          src={"/img4.jpeg"}
           alt="profile pic"
           width={0}
           height={0}

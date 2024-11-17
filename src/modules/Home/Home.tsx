@@ -6,16 +6,9 @@ import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
 import { useScreenSize } from "@app/hooks";
+import { videos } from "@app/utils/videos";
 
 import { useStyle } from "./useStyle";
-const content = {
-  title:
-    "Shree Radha Rani Mashup 2023 - (Radha Ashtami Special) - HS Visual Music x Papul | New Bhajan Songs asdf asdf asdf asfg asfg asfg asf gadf gaf basdfg as fd",
-  createdAt: "1 day ago",
-  owner: "Carry Minati Live",
-  views: "837K",
-  thumbnail: "/img.jpg"
-};
 
 const categories = [
   "Funny",
@@ -59,20 +52,24 @@ const Home = () => {
         })}
       </Box>
       <Box sx={videosContainer}>
-        {[1, 2, 3, 4, 5, 6, 12, 7, 8, 9, 0].map((item) => {
+        {videos.map((item) => {
           return (
             <Box
-              key={item}
+              key={item.title}
               sx={{
                 padding: 1,
                 width: { md: "33.33%", lg: "33.33%", sm: "50%", xs: "100%" }
               }}
             >
               <VideoCard
-                {...content}
+                createdAt={item.createdAt}
+                owner={item.owner}
+                thumbnail={item.thumbnail}
+                title={item.title}
+                views={item.views}
                 sx={{ width: "100%" }}
                 onClick={() => {
-                  router.push("/v/" + item);
+                  router.push("/v/" + item.title);
                 }}
               />
             </Box>

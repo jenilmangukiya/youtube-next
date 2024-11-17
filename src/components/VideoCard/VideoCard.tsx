@@ -98,7 +98,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                   >
                     {!hideChannel && (
                       <Stack direction={"row"} alignItems={"center"} gap={1}>
-                        {!isSmall && <Avatar {...stringAvatar("Kent Dodds")} />}{" "}
+                        {!isSmall && <Avatar {...stringAvatar(owner)} />}{" "}
                         {owner}
                       </Stack>
                     )}
@@ -150,7 +150,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       />
       <CardContent sx={{ backgroundColor: "transparent", px: 0 }}>
         <Stack direction="row" gap={2}>
-          <Avatar {...stringAvatar("John Doe")} />
+          <Avatar {...stringAvatar(owner)} />
           <Box>
             <Typography
               variant="body1"

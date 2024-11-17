@@ -2,18 +2,20 @@ import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
 
 import { stringAvatar } from "@app/utils";
 
-const SubscriberItem = () => {
+const SubscriberItem = ({
+  name,
+  subscriberCount
+}: {
+  name: string;
+  subscriberCount: string;
+}) => {
   return (
     <Stack direction={"row"} justifyContent={"space-between"}>
       <Stack direction={"row"} gap={2}>
-        <Avatar
-          {...stringAvatar("Kent Dodds")}
-          sx={{ width: 42, height: 42 }}
-          sizes="8px"
-        />
+        <Avatar {...stringAvatar(name)} sizes="8px" />
         <Box>
-          <Typography variant="body1">Code master</Typography>
-          <Typography variant="body2">20K Subscribers</Typography>
+          <Typography variant="body1">{name}</Typography>
+          <Typography variant="body2">{subscriberCount} Subscribers</Typography>
         </Box>
       </Stack>
       <Box>

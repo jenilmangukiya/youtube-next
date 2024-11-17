@@ -1,7 +1,7 @@
 import { Results } from "@app/modules";
 
-const page = () => {
+const ResultPage = () => {
   return <Results />;
 };
 
-export default page;
+export default ResultPage;

@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ setIsSidebarOpen }) => {
             size="small"
             placeholder="Search"
             sx={{ width: { xs: "100%", lg: "70%" } }}
-            value={searchText}
+            value={searchText || ""}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

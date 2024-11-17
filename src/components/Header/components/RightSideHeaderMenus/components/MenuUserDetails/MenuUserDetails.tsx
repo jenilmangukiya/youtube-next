@@ -22,9 +22,9 @@ const MenuUserDetails = () => {
       </Box>
       <Box>
         <strong>
-          <Typography variant="subtitle1">jenil mangukiya</Typography>
+          <Typography variant="subtitle1">Frontend Master</Typography>
           <Typography variant="subtitle1" mt={-1}>
-            @jenilmangukiya
+            @frontendmaster
           </Typography>
         </strong>
         <Link href={"/"} style={linkStyle}>

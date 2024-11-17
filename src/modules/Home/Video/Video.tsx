@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { VideoCard, useDrawer } from "@app/components";
 import { useScreenSize } from "@app/hooks";
+import { videos } from "@app/utils/videos";
 
 import {
   VideoPlayer,
@@ -51,19 +52,24 @@ const Video = () => {
           <Comments />
         </Box>
         <Stack width={{ lg: "602px" }} gap={2} sx={{ overflow: "hidden" }}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
-            return (
-              <VideoCard
-                {...content}
-                variant={isLargeScreen ? "horizontal" : "vertical"}
-                size={isLargeScreen ? "small" : "small"}
-                key={item}
-                onClick={() => {
-                  router.push("/v/" + item);
-                }}
-              />
-            );
-          })}
+          {isLargeScreen &&
+            videos.map((item) => {
+              return (
+                <VideoCard
+                  createdAt={item.createdAt}
+                  owner={item.owner}
+                  thumbnail={item.thumbnail}
+                  title={item.title}
+                  views={item.views}
+                  variant={isLargeScreen ? "horizontal" : "vertical"}
+                  size={isLargeScreen ? "small" : "small"}
+                  key={item.owner}
+                  onClick={() => {
+                    router.push("/v/" + item.title);
+                  }}
+                />
+              );
+            })}
         </Stack>
       </Stack>
     </Box>

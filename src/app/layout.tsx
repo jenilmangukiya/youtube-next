@@ -3,7 +3,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { AuthProvider } from "@app/Auth";
 import { SnackbarAlertProvider, theme } from "@app/components";
 import "./globals.css";
 
@@ -26,7 +25,7 @@ export default function RootLayout({
           <QueryClientProvider client={client}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <AuthProvider>{children}</AuthProvider>
+              {children}
             </ThemeProvider>
           </QueryClientProvider>
         </SnackbarAlertProvider>

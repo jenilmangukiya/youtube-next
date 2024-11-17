@@ -6,7 +6,7 @@ const Overview = () => {
     <Stack direction={"row"} mt={2} gap={3}>
       <Box>
         <Image
-          src={"/img.jpg"}
+          src={"/img1.jpg"}
           alt="profile pic"
           width={0}
           height={0}
@@ -21,17 +21,17 @@ const Overview = () => {
       </Box>
       <Stack gap={2}>
         <Typography variant="h4" fontWeight={"bolder"}>
-          BB Ki Vines
+          Frontend Development
         </Typography>
         <Typography variant="body2">
-          @BBKiVines ‧ 26.4M subscribers ‧ 192 videos
+          @frontendmaster ‧ 26.4M subscribers ‧ 192 videos
         </Typography>
         <Typography variant="body2">
-          BB Ki Vines is a channel that chronicles the everyday happenings in
+          frontendmaster is a channel that chronicles the everyday happenings in
           the lives of BB and his family members.
         </Typography>
         <Typography variant="subtitle2">
-          facebook.com/BBkiVines and 2 more links
+          facebook.com/frontendmaster and 2 more links
         </Typography>
         <Box>
           <Button color="white" variant="contained">
